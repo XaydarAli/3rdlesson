@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+{% for post in pages.object_list %}
+    <h1>POST TITLE:{{post.title}}</h1>
+    <p>Post author: {{ post.author }}</p>
+    <p>Post Category: {{ post.category }}</p>
+    <p>Post Content: {{ post.content }}</p>
+    <a href="{% url 'post-detail' post.id %}">Blog Detail</a>
+{% endfor %}
+
+
+
+ <div class="col-12">
+     <div class="pagination d-flex justify-content-center mt-5">
+           {% if pages.has_previous %}
+                <a href="{% url 'posts-list' %}?page={{ pages.previous_page_number }}" class="rounded">&laquo;</a>
+           {% endif %}
+         <a href="{% url 'posts-list' %}?page={{ pages.number }}" class="rounded">{{ pages.number }}</a>
+         {% if pages.has_next %}
+                <a href="{% url 'posts-list' %}?page={{ pages.next_page_number }}" class="rounded">&raquo;</a>
+         {% endif %}
+
+         </div>
+      </div>
+
+
+</body>
+</html>

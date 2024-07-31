@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Detail</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>My Blog</h1>
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+
+
+        </nav>
+    </header>
+    <div class="col-lg-6">
+        <h1 class="fw-bold mb-3">{{post.title}}</h1>
+        <p class="mb-3">Category: {{post.category}}</p>
+        <h5 class="fw-bold mb-3">Description:{{post.content}} </h5>
+        <h5 class="fw-bold mb-3">Date:{{post.published_date}}</h5>
+
+    </div>
+
+</body>
+</html>
